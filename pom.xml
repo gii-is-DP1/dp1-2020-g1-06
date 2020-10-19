@@ -31,13 +31,30 @@
         <spring-format.version>0.0.19</spring-format.version>
 
     </properties>
-	<developers>
-		<developer>
+
+
+    <developers>
+        <developer>
+            <id>javcenveg</id>
+            <name>Javier Centeno Vega</name>
+            <email>jacenve@telefonica.net</email>
+            <url>https://github.com/JavierCenteno</url>
+            <roles><role>programmer</role></roles>
+            <properties>
+                <picUrl></picUrl>
+            </properties>
+        </developer>
+        <!-- More developers ... -->
+        
+        <developer>
 			<id>siadan</id>
 			<name>Siamion Danko</name>
 			<email>siadan@alum.us.es</email>
 		</developer>
-	</developers>
+		
+    </developers>
+
+
     <dependencies>
         <!-- Spring and Spring Boot dependencies -->
         <dependency>
