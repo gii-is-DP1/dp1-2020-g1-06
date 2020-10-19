@@ -19,5 +19,6 @@
             <spring:url value="/resources/images/merc.png" htmlEscape="true" var="petsImage"/>
             <img class="img-responsive" src="${petsImage}"/>
         </div>
+        <img alt="logo" src="/resources/images/LogoUs.png">
     </div>
 </petclinic:layout>
