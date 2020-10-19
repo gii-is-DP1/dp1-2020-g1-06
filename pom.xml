@@ -32,7 +32,7 @@
 
     </properties>
 
-
+	
     <developers>
         <developer>
             <id>javcenveg</id>
@@ -44,16 +44,17 @@
                 <picUrl></picUrl>
             </properties>
         </developer>
-        <!-- More developers ... -->
         
         <developer>
-			<id>siadan</id>
-			<name>Siamion Danko</name>
-			<email>siadan@alum.us.es</email>
-		</developer>
-		
-    </developers>
-
+            <id>luirodvid</id>
+            <name>Luis Rodriguez Vidosa</name>
+            <email>er5lui@gmail.com</email>
+            <url>https://github.com/luirodvid</url>
+            <properties>
+                <picUrl></picUrl>
+            </properties>
+        </developer>
+	 </developers>
 
     <dependencies>
         <!-- Spring and Spring Boot dependencies -->
