@@ -45,13 +45,24 @@
             </properties>
         </developer>
         <!-- More developers ... -->
-        
+
+        <developer>
+            <id>aymalamha</id>
+            <name>Ayman Alaoui Mhammedi</name>
+            <email>aymalamha@alum.us.es</email>
+            <url>https://github.com/AymanAlaouiMhammedi</url>
+            <roles><role>programmer</role></roles>
+            <properties>
+                <picUrl></picUrl>
+            </properties>
+        </developer>
+
         <developer>
 			<id>siadan</id>
 			<name>Siamion Danko</name>
 			<email>siadan@alum.us.es</email>
 		</developer>
-		
+
     </developers>
 
 
