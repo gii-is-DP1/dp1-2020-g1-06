@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.springframework.samples</groupId>
-    <artifactId>G1-06</artifactId>
+    <artifactId>spring-petclinic</artifactId>
     <version>2.2.0.BUILD-SNAPSHOT</version>
 
     <parent>
@@ -12,7 +12,7 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.4.RELEASE</version>
     </parent>
-    <name>G1-06</name>
+    <name>petclinic</name>
 
     <properties>
 
@@ -32,39 +32,21 @@
 
     </properties>
 
-
     <developers>
         <developer>
-            <id>javcenveg</id>
-            <name>Javier Centeno Vega</name>
-            <email>jacenve@telefonica.net</email>
-            <url>https://github.com/JavierCenteno</url>
-            <roles><role>programmer</role></roles>
+            <id>javpermar4</id>
+            <name>Javier</name>
+            <email>javpermar4@alum.us.es</email>
+            <url></url>
+            <roles>
+                <role></role>
+            </roles>
             <properties>
-                <picUrl></picUrl>
+                <picUrl>
+                </picUrl>
             </properties>
         </developer>
-        <!-- More developers ... -->
-
-        <developer>
-            <id>aymalamha</id>
-            <name>Ayman Alaoui Mhammedi</name>
-            <email>aymalamha@alum.us.es</email>
-            <url>https://github.com/AymanAlaouiMhammedi</url>
-            <roles><role>programmer</role></roles>
-            <properties>
-                <picUrl></picUrl>
-            </properties>
-        </developer>
-
-        <developer>
-			<id>siadan</id>
-			<name>Siamion Danko</name>
-			<email>siadan@alum.us.es</email>
-		</developer>
-
     </developers>
-
     <dependencies>
         <!-- Spring and Spring Boot dependencies -->
         <dependency>
@@ -88,11 +70,8 @@
             <artifactId>spring-security-taglibs</artifactId>
         </dependency>
         <!-- Databases - Uses H2 by default -->
-        <!-- dependency>
-                <groupId>org.hsqldb</groupId>
-                <artifactId>hsqldb</artifactId>
-                <scope>runtime</scope>
-        </dependency-->
+        <!-- dependency> <groupId>org.hsqldb</groupId> <artifactId>hsqldb</artifactId>
+            <scope>runtime</scope> </dependency -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
@@ -102,11 +81,8 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <!-- validation
-        <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-validator</artifactId>
-        </dependency>-->
+        <!-- validation <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-validator</artifactId>
+            </dependency> -->
         <!-- caching -->
         <dependency>
             <groupId>javax.cache</groupId>
@@ -146,40 +122,7 @@
             <artifactId>bootstrap</artifactId>
             <version>${webjars-bootstrap.version}</version>
         </dependency>
-
-        <!-- Testing -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <artifactId>junit</artifactId>
-            <groupId>junit</groupId>
-        </dependency>
-        <!-- Development tools -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
-        </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -187,8 +130,8 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <executions>
                     <execution>
-                        <!-- Spring Boot Actuator displays build-related information if a META-INF/build-info.properties
-                        file is present -->
+                        <!-- Spring Boot Actuator displays build-related information if a
+                            META-INF/build-info.properties file is present -->
                         <goals>
                             <goal>build-info</goal>
                         </goals>
@@ -224,7 +167,7 @@
             </plugin>
 
             <!-- Spring Boot Actuator displays build-related information if a git.properties
-            file is present at the classpath -->
+                file is present at the classpath -->
             <plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
@@ -258,7 +201,8 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <wroManagerFactory>ro.isdc.wro.maven.plugin.manager.factory.ConfigurableWroManagerFactory</wroManagerFactory>
+                    <wroManagerFactory>ro.isdc.wro.maven.plugin.manager.factory.ConfigurableWroManagerFactory
+                    </wroManagerFactory>
                     <cssDestinationFolder>${project.build.directory}/classes/static/resources/css</cssDestinationFolder>
                     <wroFile>${basedir}/src/main/wro/wro.xml</wroFile>
                     <extraConfigFile>${basedir}/src/main/wro/wro.properties</extraConfigFile>
@@ -287,7 +231,6 @@
             <url>https://www.apache.org/licenses/LICENSE-2.0</url>
         </license>
     </licenses>
-
 
 
 </project>
