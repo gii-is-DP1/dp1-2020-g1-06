@@ -32,6 +32,7 @@
 
     </properties>
 
+
     <developers>
         <developer>
             <id>javcenveg</id>
@@ -44,7 +45,15 @@
             </properties>
         </developer>
         <!-- More developers ... -->
+        
+        <developer>
+			<id>siadan</id>
+			<name>Siamion Danko</name>
+			<email>siadan@alum.us.es</email>
+		</developer>
+		
     </developers>
+
 
     <dependencies>
         <!-- Spring and Spring Boot dependencies -->
