@@ -31,6 +31,21 @@
         <spring-format.version>0.0.19</spring-format.version>
 
     </properties>
+    <developers>
+    <developer>
+        <id>aymalamha</id>
+        <name>Ayman Alaoui Mhammedi</name>
+        <email>aymalamha@alum.us.es</email>
+        <url>https://github.com/AymanAlaouiMhammedi</url>
+        <roles>
+            <role>Programmer</role>
+        </roles>
+        <properties>
+            <picUrl>
+            </picUrl>
+        </properties>
+    </developer>
+    </developers>
 
     <dependencies>
         <!-- Spring and Spring Boot dependencies -->
