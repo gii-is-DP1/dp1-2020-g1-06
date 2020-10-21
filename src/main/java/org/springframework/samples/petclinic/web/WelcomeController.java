@@ -58,7 +58,7 @@ public class WelcomeController {
           lista.add(person6);
 
 	      model.put("persons",lista);
-	      model.put("title","My project");
+	      model.put("title","DP1-PetClinic");
 	      model.put("group","G1-06");
 
 	    return "welcome";

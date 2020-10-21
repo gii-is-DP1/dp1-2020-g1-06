@@ -4,6 +4,10 @@ INSERT INTO authorities(id,username,authority) VALUES (1,'admin1','admin');
 -- One owner user, named owner1 with passwor 0wn3r
 INSERT INTO users(username,password,enabled) VALUES ('owner1','0wn3r',TRUE);
 INSERT INTO authorities(id,username,authority) VALUES (2,'owner1','owner');
+-- One owner user, named aymalamha with passwor 123456
+INSERT INTO users(username,password,enabled) VALUES ('aymalamha','123456',TRUE);
+INSERT INTO authorities(id,username,authority) VALUES (7,'aymalamha','owner');
+
 -- One vet user, named vet1 with passwor v3t
 INSERT INTO users(username,password,enabled) VALUES ('vet1','v3t',TRUE);
 INSERT INTO authorities(id,username,authority) VALUES (3,'vet1','veterinarian');
@@ -50,6 +54,7 @@ INSERT INTO owners VALUES (9, 'David', 'Schroeder', '2749 Blackhawk Trail', 'Mad
 INSERT INTO owners VALUES (10, 'Carlos', 'Estaban', '2335 Independence La.', 'Waunakee', '6085555487', 'owner1');
 INSERT INTO owners VALUES (11, 'Javier', 'Centeno Vega', '123 San Luis', 'Sevilla', '954000000', 'javcenveg');
 INSERT INTO owners VALUES (27, 'Siamion', 'Danko', '420 Betis', 'Sevilla', '649360420', 'siadan');
+INSERT INTO owners VALUES (15, 'Ayman' ,'Alaoui Mhammedi','65478 Rue de la republique','Paris','6085551234','aymalamha');
 
 INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (1, 'Leo', '2010-09-07', 1, 1);
 INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (2, 'Basil', '2012-08-06', 6, 2);
@@ -64,7 +69,12 @@ INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (10, 'Mulligan', '2
 INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (11, 'Freddy', '2010-03-09', 5, 9);
 INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (12, 'Lucky', '2010-06-24', 2, 10);
 INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (13, 'Sly', '2012-06-08', 1, 10);
+<<<<<<< HEAD
 INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (27, 'Kora', '2012-09-20', 1, 27);
+=======
+INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (14, 'chira', '2010-06-08', 1, 15);
+
+>>>>>>> 6d86349... added aymalamha to the database as owner
 
 INSERT INTO visits(id,pet_id,visit_date,description) VALUES (1, 7, '2013-01-01', 'rabies shot');
 INSERT INTO visits(id,pet_id,visit_date,description) VALUES (2, 8, '2013-01-02', 'rabies shot');
