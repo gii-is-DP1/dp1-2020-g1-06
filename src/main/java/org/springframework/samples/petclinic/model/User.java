@@ -10,17 +10,15 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
-@Data
-@Entity
-@Table(name = "users")
+zlq
 public class User{
 	@Id
 	String username;
-	
+
 	String password;
-	
+
 	boolean enabled;
-	
+
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
 	private Set<Authorities> authorities;
 }
