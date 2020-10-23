@@ -13,6 +13,9 @@ INSERT INTO authorities(id,username,authority) VALUES (4,'javcenveg','owner');
 -- One owner user, named siadan with password siadan
 INSERT INTO users(username,password,enabled) VALUES ('siadan','siadan', TRUE);
 INSERT INTO authorities(id,username,authority) VALUES (5,'siadan','owner');
+-- One owner user, named luirodvid with password luirodvid
+INSERT INTO users(username,password,enabled) VALUES ('luirodvid','luirodvid', TRUE);
+INSERT INTO authorities(id,username,authority) VALUES (6,'luirodvid','owner');
 
 INSERT INTO vets VALUES (1, 'James', 'Carter');
 INSERT INTO vets VALUES (2, 'Helen', 'Leary');
@@ -50,6 +53,7 @@ INSERT INTO owners VALUES (9, 'David', 'Schroeder', '2749 Blackhawk Trail', 'Mad
 INSERT INTO owners VALUES (10, 'Carlos', 'Estaban', '2335 Independence La.', 'Waunakee', '6085555487', 'owner1');
 INSERT INTO owners VALUES (11, 'Javier', 'Centeno Vega', '123 San Luis', 'Sevilla', '954000000', 'javcenveg');
 INSERT INTO owners VALUES (27, 'Siamion', 'Danko', '420 Betis', 'Sevilla', '649360420', 'siadan');
+INSERT INTO owners VALUES (12, 'Luis', 'Rodriguez', '13 Palos de la Frontera', 'Huelva', '959491837', 'luirodvid');
 
 INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (1, 'Leo', '2010-09-07', 1, 1);
 INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (2, 'Basil', '2012-08-06', 6, 2);
@@ -65,6 +69,7 @@ INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (11, 'Freddy', '201
 INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (12, 'Lucky', '2010-06-24', 2, 10);
 INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (13, 'Sly', '2012-06-08', 1, 10);
 INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (27, 'Kora', '2012-09-20', 1, 27);
+INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (14, 'Uwu', '2019-08-22', 1, 12);
 
 INSERT INTO visits(id,pet_id,visit_date,description) VALUES (1, 7, '2013-01-01', 'rabies shot');
 INSERT INTO visits(id,pet_id,visit_date,description) VALUES (2, 8, '2013-01-02', 'rabies shot');
