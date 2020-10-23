@@ -16,9 +16,9 @@
     </ul>
         </p>
         <div class="col-md-12">
-            <spring:url value="/resources/images/merc.png" htmlEscape="true" var="petsImage"/>
+            <spring:url value="/resources/images/pets.png" htmlEscape="true" var="petsImage"/>
             <img class="img-responsive" src="${petsImage}"/>
         </div>
-        <img alt="logo" src="/resources/images/LogoUs.png">
+        <img alt="logo" src="/resources/images/logoPNG_3.png">
     </div>
 </petclinic:layout>
