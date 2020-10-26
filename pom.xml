@@ -43,6 +43,51 @@
                 <picUrl></picUrl>
             </properties>
         </developer>
+        <developer>
+            <id>siadan</id>
+            <name>Siamion Danko</name>
+            <email>siadan@alum.us.es</email>
+            <url>https://github.com/siadan</url>
+            <properties>
+                <picUrl></picUrl>
+            </properties>
+        </developer>
+        <developer>
+            <id>javcenveg</id>
+            <name>Javier Centeno</name>
+            <email>javcenveg@alum.us.es</email>
+            <url>https://github.com/JavierCenteno</url>
+            <properties>
+                <picUrl></picUrl>
+            </properties>
+        </developer>
+        <developer>
+            <id>javpermar4</id>
+            <name>Javier Perez</name>
+            <email>javpermar4@alum.us.es</email>
+            <url>https://github.com/JPerezMt</url>
+            <properties>
+                <picUrl></picUrl>
+            </properties>
+        </developer>
+        <developer>
+            <id>pabquide</id>
+            <name>Pablo Quindós de la Riva</name>
+            <email>pabquide@alum.us.es</email>
+            <url>https://github.com/pabquide</url>
+            <properties>
+                <picUrl></picUrl>
+            </properties>
+        </developer>
+        <developer>
+            <id>aymalamha</id>
+            <name>Ayman Alaoiu Mhammedi</name>
+            <email>aymalamha@alum.us.es</email>
+            <url>https://github.com/AymanAlaouiMhammedi</url>
+            <properties>
+                <picUrl></picUrl>
+            </properties>
+        </developer>
 
 	</developers>
 	
