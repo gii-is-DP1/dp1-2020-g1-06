@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
-zlq
+
 public class User{
 	@Id
 	String username;
