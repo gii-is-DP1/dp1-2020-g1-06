@@ -82,6 +82,7 @@ INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (27, 'Kora', '2012-
 INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (16, 'chira', '2010-06-08', 1, 15);
 INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (23, 'Uwu', '2019-08-22', 1, 16);
 
+
 INSERT INTO visits(id,pet_id,visit_date,description) VALUES (1, 7, '2013-01-01', 'rabies shot');
 INSERT INTO visits(id,pet_id,visit_date,description) VALUES (2, 8, '2013-01-02', 'rabies shot');
 INSERT INTO visits(id,pet_id,visit_date,description) VALUES (3, 8, '2013-01-03', 'neutered');
