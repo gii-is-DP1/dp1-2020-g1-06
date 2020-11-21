@@ -13,14 +13,16 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "users")
-public class User extends  BaseEntity{
+public class User {
 
+	@Id
 	String username;
-
+	
 	String password;
-
+	
 	boolean enabled;
-
+	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
 	private Set<Authorities> authorities;
+
 }
