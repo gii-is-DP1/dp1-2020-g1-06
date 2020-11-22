@@ -3,8 +3,7 @@ package org.springframework.samples.petclinic.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -12,20 +11,25 @@ import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
 @Data
-@Entity
-@Table(name = "actor")
-public class Actor extends BaseEntity{
+//@Entity
+//@Table(name = "actor")
+@MappedSuperclass
+public abstract class Actor extends BaseEntity{
     @NotBlank
-    String nombre;
+   private String nombre;
     @Email
-    String email;
+  private  String email;
     @NotBlank
-    Integer telefono;
+   private Integer telefono;
     @NotBlank
-    String direccion;
+   private  String direccion;
     @Min(0)
-    Float saldo;
+   private Float saldo;
 
-    Date fecha_nacimiento;
+    @OneToOne(optional=false)
+   private User usuario_cuenta;
+
+   private Date fecha_nacimiento;
+
 
 }
