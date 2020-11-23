@@ -46,6 +46,11 @@ public class ProductoService {
 	}
 
 	@Transactional
+	public Collection<Producto> findBySearchString(String searchQuery) throws DataAccessException {
+		return productoRepository.findBySearchString(searchQuery);
+	}
+
+	@Transactional
 	public void saveProducto(Producto producto) throws DataAccessException, DuplicatedPetNameException {
 			productoRepository.save(producto);                
 	}

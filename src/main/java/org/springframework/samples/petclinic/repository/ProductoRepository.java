@@ -16,7 +16,6 @@
 package org.springframework.samples.petclinic.repository;
 
 import java.util.Collection;
-import java.util.List;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.jpa.repository.Query;
@@ -24,7 +23,6 @@ import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.samples.petclinic.model.BaseEntity;
 import org.springframework.samples.petclinic.model.Producto;
-import org.springframework.samples.petclinic.model.Vet;
 
 public interface ProductoRepository extends Repository<Producto, Integer> {
 
@@ -41,6 +39,15 @@ public interface ProductoRepository extends Repository<Producto, Integer> {
 	 * @return a <code>Collection</code> of <code>Producto</code>s
 	 */
 	Collection<Producto> findAll() throws DataAccessException;
+
+	/**
+	 * Encuentra productos donde o el nombre o la descripción incluyen la cadena "searchQuery".
+	 * 
+	 * @param searchQuery Una cadena que buscar entre productos
+	 * @return una Collection de Producto
+	 */
+	@Query("SELECT producto FROM Producto producto WHERE producto.nombre LIKE %:searchQuery%")
+	Collection<Producto> findBySearchString(@Param("searchQuery") String searchQuery) throws DataAccessException;
 
 	/**
 	 * Save a <code>Producto</code> to the data store, either inserting or updating it.

@@ -25,6 +25,8 @@ INSERT INTO users(username,password,enabled) VALUES ('luirodvid', 'luirodvid', T
 INSERT INTO authorities(id,username,authority) VALUES (8,'luirodvid', 'owner');
 
 INSERT INTO producto VALUES (1, 10, 'Un producto', 2, 'Producto', 1);
+INSERT INTO producto VALUES (2, 20, 'Otro producto', 4, 'producto', 5);
+INSERT INTO producto VALUES (3, 15, 'Coso', 3, 'coso', 99);
 
 INSERT INTO vets VALUES (1, 'James', 'Carter');
 INSERT INTO vets VALUES (2, 'Helen', 'Leary');

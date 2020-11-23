@@ -58,10 +58,17 @@ public class ProductoController {
 		return mav;
 	}
 
-	@GetMapping("/productos/")
+	@GetMapping("/productos")
 	public ModelAndView listProductos() {
 		ModelAndView mav = new ModelAndView("productos/productoList");
 		mav.addObject("productos", this.productoService.findAll());
+		return mav;
+	}
+
+	@GetMapping("/productos/search")
+	public ModelAndView searchProductos(@RequestParam String searchQuery) {
+		ModelAndView mav = new ModelAndView("productos/productoList");
+		mav.addObject("productos", this.productoService.findBySearchString(searchQuery));
 		return mav;
 	}
 
