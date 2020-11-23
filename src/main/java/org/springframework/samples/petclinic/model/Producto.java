@@ -30,10 +30,10 @@ public class Producto extends BaseEntity{
 	 private Integer cantidad;
 	 @Min(0) @Max(100)
 	 private Integer descuento;
-    /*@ManyToMany(cascade =
+    @ManyToMany(cascade =
         {CascadeType.PERSIST,
             CascadeType.MERGE,
             CascadeType.DETACH,
             CascadeType.REFRESH})
-    private Collection<Almacen> almacenes;*/
+    private Collection<Almacen> almacenes;
 }
