@@ -5,6 +5,7 @@ import lombok.Data;
 
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
@@ -21,6 +22,7 @@ import java.util.Collection;
 public class Producto extends BaseEntity{
 	 @NotBlank
 	 private String nombre;
+	 @Column(name = "descripción")
 	 private String descripción;
 	 @Min(0)
 	 private Double precio;
@@ -28,10 +30,10 @@ public class Producto extends BaseEntity{
 	 private Integer cantidad;
 	 @Min(0) @Max(100)
 	 private Integer descuento;
-    @ManyToMany(cascade =
+    /*@ManyToMany(cascade =
         {CascadeType.PERSIST,
             CascadeType.MERGE,
             CascadeType.DETACH,
             CascadeType.REFRESH})
-    private Collection<Almacen> almacenes;
+    private Collection<Almacen> almacenes;*/
 }
