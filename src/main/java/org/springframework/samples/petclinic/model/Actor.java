@@ -24,7 +24,7 @@ public abstract class Actor extends BaseEntity{
     @NotBlank
    private  String direccion;
     @Min(0)
-   private Float saldo;
+   private Integer saldo;
 
     @OneToOne(optional=false)
    private User usuario_cuenta;

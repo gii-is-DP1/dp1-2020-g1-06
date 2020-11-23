@@ -25,7 +25,7 @@ public class Producto extends BaseEntity{
 	 @Column(name = "descripción")
 	 private String descripción;
 	 @Min(0)
-	 private Double precio;
+	 private Integer precio;
 	 @Min(0)
 	 private Integer cantidad;
 	 @Min(0) @Max(100)
