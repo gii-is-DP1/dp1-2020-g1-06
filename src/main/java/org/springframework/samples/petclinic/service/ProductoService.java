@@ -15,6 +15,8 @@
  */
 package org.springframework.samples.petclinic.service;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.samples.petclinic.model.Producto;
@@ -33,12 +35,17 @@ public class ProductoService {
 		this.productoRepository = productoRepository;
 	}
 
-	@Transactional(readOnly = true)
+	@Transactional
 	public Producto findProductoById(int id) throws DataAccessException {
 		return productoRepository.findById(id);
 	}
 
-	@Transactional()
+	@Transactional
+	public Collection<Producto> findAll() throws DataAccessException {
+		return productoRepository.findAll();
+	}
+
+	@Transactional
 	public void saveProducto(Producto producto) throws DataAccessException, DuplicatedPetNameException {
 			productoRepository.save(producto);                
 	}

@@ -52,9 +52,16 @@ public class ProductoController {
 	}
 
 	@GetMapping("/productos/{productoId}")
-	public ModelAndView showOwner(@PathVariable("productoId") int productoId) {
+	public ModelAndView showProducto(@PathVariable("productoId") int productoId) {
 		ModelAndView mav = new ModelAndView("productos/productoDetails");
 		mav.addObject("producto", this.productoService.findProductoById(productoId));
+		return mav;
+	}
+
+	@GetMapping("/productos/")
+	public ModelAndView listProductos() {
+		ModelAndView mav = new ModelAndView("productos/productoList");
+		mav.addObject("productos", this.productoService.findAll());
 		return mav;
 	}
 
