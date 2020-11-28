@@ -16,44 +16,33 @@
 package org.springframework.samples.petclinic.repository;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
-import org.springframework.samples.petclinic.model.BaseEntity;
 import org.springframework.samples.petclinic.model.Producto;
 
 public interface ProductoRepository extends Repository<Producto, Integer> {
 
-	/**
-	 * Retrieve a <code>Producto</code> from the data store by id.
-	 * @param id the id to search for
-	 * @return the <code>Producto</code> if found
-	 * @throws org.springframework.dao.DataRetrievalFailureException if not found
-	 */
-	Producto findById(int id) throws DataAccessException;
+	@Query("SELECT producto FROM Producto producto WHERE producto.id =:id")
+	Optional<Producto> findById(@Param("id") int id);
 
-	/**
-	 * Retrieve all <code>Producto</code>s from the data store.
-	 * @return a <code>Collection</code> of <code>Producto</code>s
-	 */
-	Collection<Producto> findAll() throws DataAccessException;
+	@Query("SELECT producto FROM Producto producto WHERE producto.actor.id =:id")
+	Collection<Producto> findByActorId(@Param("id") int id);
 
-	/**
-	 * Encuentra productos donde o el nombre o la descripción incluyen la cadena "searchQuery".
-	 * 
-	 * @param searchQuery Una cadena que buscar entre productos
-	 * @return una Collection de Producto
-	 */
+	@Query("SELECT producto FROM Producto producto WHERE producto.cantidad <> 0")
+	Collection<Producto> findAllWithAmount();
+
 	@Query("SELECT producto FROM Producto producto WHERE producto.nombre LIKE %:searchQuery%")
 	Collection<Producto> findBySearchString(@Param("searchQuery") String searchQuery) throws DataAccessException;
 
-	/**
-	 * Save a <code>Producto</code> to the data store, either inserting or updating it.
-	 * @param Producto the <code>Producto</code> to save
-	 * @see BaseEntity#isNew
-	 */
+	@Query("SELECT producto FROM Producto producto WHERE producto.descuento <> 0 ORDER BY producto.descuento")
+	Collection<Producto> findWithDiscount() throws DataAccessException;
+
+	Collection<Producto> findAll() throws DataAccessException;
+
 	void save(Producto producto) throws DataAccessException;
 
 }

@@ -11,25 +11,27 @@ import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
 @Data
-//@Entity
+@Entity
 //@Table(name = "actor")
-@MappedSuperclass
+//@MappedSuperclass
 public abstract class Actor extends BaseEntity{
-    @NotBlank
-   private String nombre;
-    @Email
-  private  String email;
-    @NotBlank
-   private Integer telefono;
-    @NotBlank
-   private  String direccion;
-    @Min(0)
-   private Integer saldo;
 
-    @OneToOne(optional=false)
-   private User usuario_cuenta;
+	@NotBlank
+	private String nombre;
+	
+	@Email
+	private  String email;
 
-   private Date fecha_nacimiento;
-
+	@NotBlank
+	private Integer telefono;
+	
+	@NotBlank
+	private  String direccion;
+	
+	@Min(0)
+	private Integer saldo;
+	
+	@OneToOne(optional=false)
+	private User usuario_cuenta;
 
 }
