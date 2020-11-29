@@ -5,6 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
+<<<<<<< HEAD
  *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
@@ -15,11 +16,13 @@
  */
 package org.springframework.samples.petclinic.service;
 
+import java.util.Collection;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.samples.petclinic.model.Producto;
 import org.springframework.samples.petclinic.repository.ProductoRepository;
-import org.springframework.samples.petclinic.service.exceptions.DuplicatedPetNameException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,14 +36,39 @@ public class ProductoService {
 		this.productoRepository = productoRepository;
 	}
 
-	@Transactional(readOnly = true)
-	public Producto findProductoById(int id) throws DataAccessException {
+	@Transactional
+	public Optional<Producto> findProductoById(int id) throws DataAccessException {
 		return productoRepository.findById(id);
 	}
 
-	@Transactional()
-	public void saveProducto(Producto producto) throws DataAccessException, DuplicatedPetNameException {
-			productoRepository.save(producto);                
+	@Transactional(readOnly = true)
+	public Iterable<Producto> findProductoByActorId(final int id) throws DataAccessException {
+		return this.productoRepository.findByActorId(id);
+	}
+
+	@Transactional
+	public Collection<Producto> findAllWithAmount() throws DataAccessException {
+		return productoRepository.findAllWithAmount();
+	}
+
+	@Transactional
+	public Collection<Producto> findBySearchString(String searchQuery) throws DataAccessException {
+		return productoRepository.findBySearchString(searchQuery);
+	}
+
+	@Transactional
+	public Collection<Producto> findWithDiscount() throws DataAccessException {
+		return productoRepository.findWithDiscount();
+	}
+
+	@Transactional
+	public Collection<Producto> findAll() throws DataAccessException {
+		return productoRepository.findAll();
+	}
+
+	@Transactional
+	public void saveProducto(final Producto producto) throws DataAccessException {
+		this.productoRepository.save(producto);
 	}
 
 }

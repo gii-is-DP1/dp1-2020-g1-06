@@ -16,13 +16,8 @@
 package org.springframework.samples.petclinic.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.samples.petclinic.model.Owner;
-import org.springframework.samples.petclinic.model.Pet;
-import org.springframework.samples.petclinic.model.PetType;
-import org.springframework.samples.petclinic.service.VetService;
+import org.springframework.samples.petclinic.model.Producto;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
@@ -30,31 +25,72 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 
-import java.util.Collection;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.springframework.beans.BeanUtils;
-import org.springframework.dao.DataAccessException;
-import org.springframework.samples.petclinic.model.Visit;
-import org.springframework.samples.petclinic.service.OwnerService;
-import org.springframework.samples.petclinic.service.PetService;
+import java.util.Map;
+import java.util.Optional;
+import org.springframework.samples.petclinic.service.AuthoritiesService;
 import org.springframework.samples.petclinic.service.ProductoService;
-import org.springframework.samples.petclinic.service.exceptions.DuplicatedPetNameException;
 
 @Controller
 public class ProductoController {
 
+	private static final String VIEWS_PRODUCTO_CREATE_FORM = "producto/createProductoForm";
+
 	private final ProductoService productoService;
 
 	@Autowired
-	public ProductoController(ProductoService productoService) {
+	public ProductoController(final ProductoService productoService, final AuthoritiesService authoritiesService) {
 		this.productoService = productoService;
 	}
 
-	@GetMapping("/productos/{productoId}")
-	public ModelAndView showOwner(@PathVariable("productoId") int productoId) {
-		ModelAndView mav = new ModelAndView("productos/productoDetails");
-		mav.addObject("producto", this.productoService.findProductoById(productoId));
+	// Métodos de creación de producto
+
+	@InitBinder
+	public void setAllowedFields(final WebDataBinder dataBinder) {
+		dataBinder.setDisallowedFields("id");
+	}
+
+	@GetMapping(value = "/producto/new")
+	public String initCreationForm(final Map<String, Object> model) {
+		Producto producto = new Producto();
+		model.put("producto", producto);
+		return ProductoController.VIEWS_PRODUCTO_CREATE_FORM;
+	}
+
+	@PostMapping(value = "/producto/new")
+	public String processCreationForm(@Valid final Producto producto, final BindingResult result) {
+		String view = "redirect:/producto/list";
+		if (result.hasErrors()) {
+			return ProductoController.VIEWS_PRODUCTO_CREATE_FORM;
+		} else {
+			//Actor actor = this.actorService.findActorByLogedUser();
+			//producto.setActor(actor);
+			this.productoService.saveProducto(producto);
+			return view;
+		}
+	}
+
+	// Otros métodos
+
+	@GetMapping("/producto/view/{productoId}")
+	public ModelAndView viewProducto(@PathVariable("productoId") int productoId) {
+		ModelAndView mav = new ModelAndView("producto/viewProducto");
+		Optional<Producto> producto = this.productoService.findProductoById(productoId);
+		// TODO: y si no hay un producto?
+		mav.addObject("producto", producto.get());
+		return mav;
+	}
+
+	@GetMapping("/producto/list")
+	public ModelAndView listProductos() {
+		ModelAndView mav = new ModelAndView("producto/listProductos");
+		mav.addObject("productos", this.productoService.findAllWithAmount());
+		return mav;
+	}
+
+	@GetMapping("/producto/search")
+	public ModelAndView searchProductos(@RequestParam String searchQuery) {
+		ModelAndView mav = new ModelAndView("producto/listProductos");
+		mav.addObject("productos", this.productoService.findBySearchString(searchQuery));
 		return mav;
 	}
 

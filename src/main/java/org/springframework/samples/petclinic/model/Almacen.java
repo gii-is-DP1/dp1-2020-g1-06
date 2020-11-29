@@ -2,6 +2,8 @@ package org.springframework.samples.petclinic.model;
 
 import lombok.Data;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -25,8 +27,9 @@ public class Almacen extends BaseEntity{
     @ManyToOne(optional = false)
     private Organizacion organizacion;
 
+
     @ManyToMany
-    private Collection<Producto> producto;
+    private Collection<Producto> productos;
 
 
 }

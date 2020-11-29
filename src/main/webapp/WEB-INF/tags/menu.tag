@@ -34,6 +34,12 @@
 					<span>Find owners</span>
 				</petclinic:menuItem>
 
+				<petclinic:menuItem active="${name eq 'owners'}" url="/producto/list"
+					title="productos">
+					<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+					<span>Productos</span>
+				</petclinic:menuItem>
+
 				<petclinic:menuItem active="${name eq 'vets'}" url="/vets"
 					title="veterinarians">
 					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>

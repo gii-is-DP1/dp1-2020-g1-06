@@ -11,10 +11,11 @@ import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
 @Data
-//@Entity
+@Entity
 //@Table(name = "actor")
-@MappedSuperclass
+//@MappedSuperclass
 public abstract class Actor extends BaseEntity{
+
     @NotBlank
    private String nombre;
     @NotBlank
@@ -28,14 +29,11 @@ public abstract class Actor extends BaseEntity{
     @Min(0)
    private Float saldo;
 
-
-
     //
     // @OneToOne(optional=false)
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "username", referencedColumnName = "username")
    private UserAccount cuenta_actor;
-
 
 
 
