@@ -20,8 +20,8 @@
             <th style="width: 200px;">Precio</th>
             <th style="width: 120px;">Cantidad</th>
             <th style="width: 160px;">Descuento</th>
-            <th style="width: 160px;">Actor</th>
-            <th style="width: 160px;"></th>
+         	<th style="width: 160px;">Actor</th>
+            <th style="width: 160px;">Acciones</th>
         </tr>
         </thead>
         <tbody>
@@ -42,9 +42,15 @@
                 <td>
                     <c:out value="${producto.descuento}"/>
                 </td>
-                <td>
+      	 		<td>
                     <c:out value="${producto.actor.nombre}"/>
-                </td>
+                </td> 
+                <td>
+                	<spring:url value="/producto/delete/{productoId}" var="productoUrl">
+                        <spring:param name="productoId" value="${producto.id}"/>
+                    </spring:url>
+                	<a href="${fn:escapeXml(productoUrl)}">Delete</a>
+               	</td>
             </tr>
         </c:forEach>
         </tbody>

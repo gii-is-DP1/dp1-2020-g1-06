@@ -65,10 +65,16 @@ public class ProductoService {
 	public Collection<Producto> findAll() throws DataAccessException {
 		return productoRepository.findAll();
 	}
-
+	
+	@Transactional
+	public void delete(Producto producto){
+		productoRepository.delete(producto);
+	}
+	
 	@Transactional
 	public void saveProducto(final Producto producto) throws DataAccessException {
 		this.productoRepository.save(producto);
 	}
+	
 
 }

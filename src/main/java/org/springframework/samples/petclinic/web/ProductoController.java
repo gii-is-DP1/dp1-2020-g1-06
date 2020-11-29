@@ -18,12 +18,14 @@ package org.springframework.samples.petclinic.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.petclinic.model.Producto;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import javax.websocket.server.PathParam;
 
 import java.util.Map;
 import java.util.Optional;
@@ -71,6 +73,19 @@ public class ProductoController {
 
 
 	// Otros métodos
+	
+	@GetMapping(path= "/delete/{productoId}")
+	public String borrarProducto(@PathVariable("productoId") int productoId, ModelMap map) {
+		String view = "producto/list";
+		Optional<Producto> producto = productoService.findProductoById(productoId);
+		if(producto.isPresent()) {
+			productoService.delete(producto.get());
+			map.addAttribute("message", "Producto eliminado satisfactoriamente");
+		}else {
+			map.addAttribute("message", "Producto no encontrado");
+		}
+		return view;
+	}
 
 	@GetMapping("/producto/view/{productoId}")
 	public ModelAndView viewProducto(@PathVariable("productoId") int productoId) {

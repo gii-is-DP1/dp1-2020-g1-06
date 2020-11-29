@@ -20,18 +20,19 @@ import java.util.Optional;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.samples.petclinic.model.Producto;
 
-public interface ProductoRepository extends Repository<Producto, Integer> {
+public interface ProductoRepository extends CrudRepository<Producto, Integer>{
 
 	@Query("SELECT producto FROM Producto producto WHERE producto.id =:id")
 	Optional<Producto> findById(@Param("id") int id);
 
 	@Query("SELECT producto FROM Producto producto WHERE producto.actor.id =:id")
 	Collection<Producto> findByActorId(@Param("id") int id);
-
+	
 	@Query("SELECT producto FROM Producto producto WHERE producto.cantidad <> 0")
 	Collection<Producto> findAllWithAmount();
 
@@ -40,9 +41,13 @@ public interface ProductoRepository extends Repository<Producto, Integer> {
 
 	@Query("SELECT producto FROM Producto producto WHERE producto.descuento <> 0 ORDER BY producto.descuento")
 	Collection<Producto> findWithDiscount() throws DataAccessException;
-
+	
+	@Query("DELETE FROM Producto producto WHERE producto.id =:id")
+	Collection<Producto> delete(@Param("id") int id);
+	
+	
 	Collection<Producto> findAll() throws DataAccessException;
 
-	void save(Producto producto) throws DataAccessException;
+	//void save(Producto producto) throws DataAccessException;
 
 }
