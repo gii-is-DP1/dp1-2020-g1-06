@@ -14,8 +14,8 @@
             <td><b><c:out value="${producto.nombre}"/></b></td>
         </tr>
         <tr>
-            <th>Descripción</th>
-            <td><b><c:out value="${producto.descripción}"/></b></td>
+            <th>Descripcion</th>
+            <td><b><c:out value="${producto.descripcion}"/></b></td>
         </tr>
         <tr>
             <th>Precio</th>
