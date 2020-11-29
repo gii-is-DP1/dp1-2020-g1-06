@@ -68,6 +68,8 @@ public class ProductoController {
 			return view;
 		}
 	}
+	@GetMapping(path = "/producto/list")
+	public String deleteProducto(@PathParam)
 
 	// Otros métodos
 
