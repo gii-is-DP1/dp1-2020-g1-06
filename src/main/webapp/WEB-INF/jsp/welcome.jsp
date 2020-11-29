@@ -23,6 +23,6 @@
 
             <img class="img-responsive" src="${petsImage}"/>
         </div>
-        <img alt="logo" src="/resources/images/logoPNG_3.png">
+
     </div>
 </petclinic:layout>

@@ -29,7 +29,7 @@ public class Almacen extends BaseEntity{
 
 
     @ManyToMany
-    private Collection<Producto> productos;
+    private Collection<Producto> producto;
 
 
 }
