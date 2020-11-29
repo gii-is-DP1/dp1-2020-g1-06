@@ -40,6 +40,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/users/new_organizacion").permitAll()
 				.antMatchers("/users/new_moderador").permitAll()
 				.antMatchers("/producto/**").permitAll()
+
 				.antMatchers("/admin/**").hasAnyAuthority("admin")
 				.antMatchers("/owners/**").hasAnyAuthority("owner","admin")
 				.antMatchers("/vets/**").authenticated()
@@ -65,12 +66,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	      .dataSource(dataSource)
 	      .usersByUsernameQuery(
 	       "select username,password,enabled "
-	        + "from users "
+	        + "from cuenta "
 	        + "where username = ?")
-	      .authoritiesByUsernameQuery(
+	      /*.authoritiesByUsernameQuery(
 	       "select username, authority "
 	        + "from authorities "
-	        + "where username = ?")
+	        + "where username = ?")*/
 	      .passwordEncoder(passwordEncoder());
 	}
 
