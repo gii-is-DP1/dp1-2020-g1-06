@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import java.util.Collection;
 
 @Data
 @Entity
@@ -25,8 +26,10 @@ public class Almacen extends BaseEntity{
 
     @ManyToOne(optional = false)
     private Organizacion organizacion;
-    
+
+
     @ManyToMany
     private Collection<Producto> productos;
+
 
 }

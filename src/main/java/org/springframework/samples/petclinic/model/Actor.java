@@ -16,22 +16,25 @@ import java.util.Date;
 //@MappedSuperclass
 public abstract class Actor extends BaseEntity{
 
-	@NotBlank
-	private String nombre;
-	
-	@Email
-	private  String email;
+    @NotBlank
+   private String nombre;
+    @NotBlank
+    private String apellidos;
+    @Email
+  private  String email;
+    @NotBlank
+   private String telefono;
+    @NotBlank
+   private  String direccion;
+    @Min(0)
+   private Float saldo;
 
-	@NotBlank
-	private Integer telefono;
-	
-	@NotBlank
-	private  String direccion;
-	
-	@Min(0)
-	private Integer saldo;
-	
-	@OneToOne(optional=false)
-	private User usuario_cuenta;
+    //
+    // @OneToOne(optional=false)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "username", referencedColumnName = "username")
+   private UserAccount cuenta_actor;
+
+
 
 }

@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Data
 @Entity
-@Table(name = "Usuario")
+@Table(name = "usuario")
 public class Usuario extends Actor {
 
 }
