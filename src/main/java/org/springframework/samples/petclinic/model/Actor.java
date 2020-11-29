@@ -17,19 +17,26 @@ import java.util.Date;
 public abstract class Actor extends BaseEntity{
     @NotBlank
    private String nombre;
+    @NotBlank
+    private String apellidos;
     @Email
   private  String email;
     @NotBlank
-   private Integer telefono;
+   private String telefono;
     @NotBlank
    private  String direccion;
     @Min(0)
    private Float saldo;
 
-    @OneToOne(optional=false)
-   private User usuario_cuenta;
 
-   private Date fecha_nacimiento;
+
+    //
+    // @OneToOne(optional=false)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "username", referencedColumnName = "username")
+   private UserAccount cuenta_actor;
+
+
 
 
 }

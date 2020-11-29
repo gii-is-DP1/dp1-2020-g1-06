@@ -10,5 +10,5 @@ import java.util.Date;
 @Entity
 @Table(name = "moderador")
 public class Moderador extends Actor{
-    Date fecha_caducidad;
+
 }
