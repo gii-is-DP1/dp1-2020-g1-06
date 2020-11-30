@@ -24,7 +24,7 @@
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <c:choose>
-                    <c:when test="${usuario['new']}">
+                    <c:when test="${organizacion['new']}">
                         <button class="btn btn-default" type="submit">Add Organizacion</button>
                     </c:when>
                     <c:otherwise>
