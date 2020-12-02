@@ -33,11 +33,11 @@ INSERT INTO actor(dtype,id,nombre,email,telefono,direccion,saldo,username) VALUE
 -- usuario1
 INSERT INTO users(username,password,enabled) VALUES ('usuario1','usuario1',TRUE);
 INSERT INTO authorities(id,username,authority) VALUES (7,'usuario1','usuario');
-INSERT INTO actor(dtype,id,nombre,email,telefono,direccion,saldo,username) VALUES ('Usuario', 7, 'usuario numero 1','usuario1@gmail.com','954111111','calle del usuario, 1',0,'usuario1');
+INSERT INTO actor(dtype,id,nombre,email,telefono,direccion,saldo,username) VALUES ('Usuario', 7, 'usuario numero 1','usuario1@gmail.com','954111111','calle del usuario, 1',200,'usuario1');
 -- usuario2
 INSERT INTO users(username,password,enabled) VALUES ('usuario2','usuario2',TRUE);
 INSERT INTO authorities(id,username,authority) VALUES (8,'usuario2','usuario');
-INSERT INTO actor(dtype,id,nombre,email,telefono,direccion,saldo,username) VALUES ('Usuario', 8, 'usuario numero 2','usuario2@gmail.com','954222222','calle del usuario, 2',0,'usuario2');
+INSERT INTO actor(dtype,id,nombre,email,telefono,direccion,saldo,username) VALUES ('Usuario', 8, 'usuario numero 2','usuario2@gmail.com','954222222','calle del usuario, 2',10,'usuario2');
 -- usuario3
 INSERT INTO users(username,password,enabled) VALUES ('usuario3','usuario3',TRUE);
 INSERT INTO authorities(id,username,authority) VALUES (9,'usuario3','usuario');
