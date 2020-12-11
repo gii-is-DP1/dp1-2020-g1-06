@@ -66,12 +66,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	      .dataSource(dataSource)
 	      .usersByUsernameQuery(
 	       "select username,password,enabled "
-	        + "from cuenta "
+	        + "from users "
 	        + "where username = ?")
-	      /*.authoritiesByUsernameQuery(
+	      .authoritiesByUsernameQuery(
 	       "select username, authority "
 	        + "from authorities "
-	        + "where username = ?")*/
+	        + "where username = ?")
 	      .passwordEncoder(passwordEncoder());
 	}
 

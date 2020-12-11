@@ -16,20 +16,17 @@ import java.util.Collection;
 @Entity
 @Table(name = "Almacen")
 public class Almacen extends BaseEntity{
-    @NotBlank
-    String nombre;
-    @NotBlank
-    String direccion;
 
-    @Min(0)
-    Integer cantidad_prod;
+	@NotBlank
+	String nombre;
 
-    @ManyToOne(optional = false)
-    private Organizacion organizacion;
+	@NotBlank
+	String direccion;
 
+	@ManyToOne(optional = false)
+	private Organizacion organizacion;
 
-    @ManyToMany
-    private Collection<Producto> producto;
-
+	@ManyToMany
+	private Collection<Producto> producto;
 
 }

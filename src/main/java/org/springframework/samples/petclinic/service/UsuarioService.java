@@ -4,17 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.samples.petclinic.model.Usuario;
 import org.springframework.samples.petclinic.repository.UsuarioRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Collection;
 
 @Service
 public class UsuarioService {
 
     private UsuarioRepository usuarioRepository;
     @Autowired
-    private UserAccountService userAccountService;
+    private UserService userService;
 
     @Autowired
     public UsuarioService(UsuarioRepository usuarioRepository) {
@@ -22,10 +21,29 @@ public class UsuarioService {
     }
 
     @Transactional(readOnly = true)
-    public Usuario getUsuarioByID(Integer id) {
+    public Usuario findById(int id) {
         return usuarioRepository.findById(id);
     }
 
+    @Transactional(readOnly = true)
+    public Usuario findByUsername(String username) {
+    	return usuarioRepository.findByUsername(username);
+    }
+
+	/**
+	 * Encuentra al usuario que está autenticado. Devuelve null si no hay
+	 * nadie autenticado o si el usuario autenticado no es un usuario.
+	 */
+    @Transactional(readOnly = true)
+    public Usuario findLoggedIn() {
+    	Object loggedInUser = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    	if(loggedInUser instanceof org.springframework.security.core.userdetails.User) {
+    		String username = ((org.springframework.security.core.userdetails.User) loggedInUser).getUsername();
+    		return this.findByUsername(username);
+    	} else {
+    		return null;
+    	}
+    }
 
     @Transactional
     public Usuario setUsuarioName(Integer id, String new_name){
@@ -37,16 +55,12 @@ public class UsuarioService {
         return usuario;
     }
 
-    @Transactional(readOnly = true)
-    public Collection<Usuario> findUsuarioByLastName(String lastName) throws DataAccessException {
-        return usuarioRepository.findByLastName(lastName);
-    }
-
     @Transactional
     public void saveUsuario(Usuario usuario) throws DataAccessException {
         //creating usuario
         usuarioRepository.save(usuario);
         //creating user
-        userAccountService.saveUserAccount(usuario.getCuenta_actor());
+        userService.saveUser(usuario.getUser());
     }
+
 }

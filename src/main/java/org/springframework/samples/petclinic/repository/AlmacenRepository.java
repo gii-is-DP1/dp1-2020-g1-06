@@ -5,4 +5,5 @@ import org.springframework.samples.petclinic.model.Almacen;
 import org.springframework.samples.petclinic.model.Organizacion;
 
 public interface AlmacenRepository extends Repository<Almacen,Integer> {
+
 }
