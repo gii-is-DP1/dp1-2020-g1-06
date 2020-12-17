@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
@@ -29,6 +30,7 @@ public class Producto extends BaseEntity{
 	private Integer cantidad;
 	
 	@Min(0)
+	@Max(100)
 	private Integer descuento;
 
 	@ManyToOne
