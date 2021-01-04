@@ -40,6 +40,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/users/new_organizacion").permitAll()
 				.antMatchers("/users/new_moderador").permitAll()
 				.antMatchers("/producto/**").permitAll()
+				.antMatchers("/credito/**").authenticated()
 
 				.antMatchers("/admin/**").hasAnyAuthority("admin")
 				.antMatchers("/owners/**").hasAnyAuthority("owner","admin")
@@ -58,6 +59,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 // se sirve desde esta misma página.
                 http.csrf().ignoringAntMatchers("/h2-console/**");
                 http.headers().frameOptions().sameOrigin();
+                
+                // Permitir enviar POSTs para que funcione comprar/vender credito
+                http.cors().and().csrf().disable();
 	}
 
 	@Override
